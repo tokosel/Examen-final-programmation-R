@@ -25,10 +25,16 @@ median_montant <- median(ventesDf$Montant.Depense)
 print(median_montant)
 
 
-#4.Sélection de données: Comment sélectionneriez-vous et afficheriez-vous le montant dépensé par les 10 premiers clients du jeu de données?
-
-# Sélectionner le montant dépensé par les 10 premiers clients
+#4. Sélection de données: Comment sélectionneriez-vous et afficheriez-vous le montant dépensé par les 10 premiers clients du jeu de données?
+#a. Sélectionner le montant dépensé par les 10 premiers clients
 montant_10_premiers_client <- head(ventesDf$Montant.Depense, 10)
-
-# Afficher le montant dépensé par les 10 premiers clients
+#b. Afficher le montant dépensé par les 10 premiers clients
 print(montant_10_premiers_client)
+
+#5. Filtrage des données: Comment filtreriez-vous et afficheriez-vous toutes les lignes où le nombre de produits achetés est supérieur à 15?
+#a. Filtrer les lignes où le nombre de produits achetés est supérieur à 15
+produits_plus_de_15 <- subset(ventesDf, Nombre.de.Produits.Achetes > 15)
+
+#b. Afficher les lignes filtrées
+print(produits_plus_de_15)
+
