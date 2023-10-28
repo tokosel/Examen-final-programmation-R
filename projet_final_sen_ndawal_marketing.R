@@ -28,6 +28,7 @@ print(median_montant)
 #4. Sélection de données: Comment sélectionneriez-vous et afficheriez-vous le montant dépensé par les 10 premiers clients du jeu de données?
 #a. Sélectionner le montant dépensé par les 10 premiers clients
 montant_10_premiers_client <- head(ventesDf$Montant.Depense, 10)
+
 #b. Afficher le montant dépensé par les 10 premiers clients
 print(montant_10_premiers_client)
 
@@ -49,7 +50,12 @@ nom_client_max_depense <- ventesDf$Prenom.Nom[indice_max_depense]
 #c. Afficher le nom du client ayant dépensé le plus
 print(nom_client_max_depense)
 
+#7. Moyenne des produits achetés: Calculez la moyenne du nombre de produits achetés par les clients.
+#a. Calculer la moyenne du nombre de produits achetés
+moyenne_produits_achetes <- mean(ventesDf$Nombre.de.Produits.Achetes)
 
+#b. Afficher la moyenne
+print(moyenne_produits_achetes)
 
 
 
