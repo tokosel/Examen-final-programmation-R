@@ -62,6 +62,11 @@ print(moyenne_produits_achetes)
 ventesDf$Loyaute <- ifelse(ventesDf$Montant.Depense > 30000, "Haute", "Basse")
 head(ventesDf, 5)
 
+#9. Sauvegarde des données: Comment sauvegarderiez-vous le jeu de données modifié dans un fichier CSV appelé "marketing_data_with_loyalty.csv"?
+# Sauvegarder le jeu de données modifié dans un fichier CSV
+write.csv(ventesDf, "C:/Users/hp/Desktop/marketing_data_with_loyalty.csv", row.names = FALSE)
+
+
 
 
 
