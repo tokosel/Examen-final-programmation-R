@@ -1,3 +1,6 @@
+#Projet final du module Programmation R Master 1 SID CRD UADB
+#Dépôt Github: https://github.com/tokosel/Examen-final-programmation-R
+
 #Importation des packages nécessaire
 library(readr)
 library(ggplot2)
@@ -80,9 +83,9 @@ ggplot(data = ventesDf, aes(x = Nombre.de.Produits.Achetes, y = Montant.Depense.
   ggtitle("Relation entre le nombre de produits achetés et le montant dépensé")
 
 
-#Bonus: proposition de deux graphiques pertinents
+#Bonus: proposition de trois graphiques pertinents
 
-#1. Diagramme en barres (bar plot):Un diagramme en barres pourrait être utilisé pour représenter le montant dépensé par le top 5 des client qui ont le plus dépensé.
+#1. Un diagramme en barres pourrait être utilisé pour représenter le montant dépensé par le top 5 des client qui ont le plus dépensé.
 
 # Trier les clients par montant dépensé en ordre décroissant
 top_clients <- head(ventesDf[order(-ventesDf$Montant.Depense..Franc.CFA.),], 5)
@@ -94,8 +97,7 @@ ggplot(data = top_clients, aes(x = Prenom.Nom, y = Montant.Depense..Franc.CFA., 
   ggtitle("Top 5 des Clients Ayant le Plus Dépensé")
 
 
-
-#2. Diagramme en secteurs (pie chart) : Un diagramme en secteurs pourrait être utilisé pour représenter la répartition des clients en fonction de leur "Loyauté"
+#2. Un diagramme en secteurs pourrait être utilisé pour représenter la répartition des clients en fonction de leur "Loyauté"
 
 # Compter le nombre de clients "Haute" et "Basse"
 loyaute_counts <- table(ventesDf$Loyaute)
@@ -106,7 +108,7 @@ ggplot(data = NULL, aes(x = "", y = loyaute_counts, fill = names(loyaute_counts)
   labs(fill = "Loyauté") +
   ggtitle("Répartition des Clients par Loyauté")
 
-#2. Diagramme en barres représentant le montant dépensé par chaque catégorie de client
+#3. Diagramme en barres représentant le montant dépensé par chaque catégorie de client
 ggplot(data = ventesDf, aes(x = Loyaute, y = Montant.Depense..Franc.CFA., fill = Loyaute)) +
   geom_bar(stat = "identity") +
   labs(x = "Catégorie de Client", y = "Montant Dépensé") +
