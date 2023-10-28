@@ -38,3 +38,22 @@ produits_plus_de_15 <- subset(ventesDf, Nombre.de.Produits.Achetes > 15)
 #b. Afficher les lignes filtrées
 print(produits_plus_de_15)
 
+#6  Nom du client ayant dépensé le plus: Qui est le client qui a dépensé le plus d'argent dans ce jeu de données?
+#a. Trouver l'indice du client avec la dépense maximale
+indice_max_depense <- which.max(ventesDf$Montant.Depense)
+
+#b. Extraire le nom du client correspondant
+nom_client_max_depense <- ventesDf$Prenom.Nom[indice_max_depense]
+
+#c. Afficher le nom du client ayant dépensé le plus
+print(nom_client_max_depense)
+
+
+
+
+
+
+
+
+
+
