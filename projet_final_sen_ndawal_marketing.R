@@ -82,12 +82,18 @@ ggplot(data = ventesDf, aes(x = Nombre.de.Produits.Achetes, y = Montant.Depense.
 
 #Bonus: proposition de deux graphiques pertinents
 
-#1. Diagramme en barres (bar plot):Un diagramme en barres pourrait être utilisé pour représenter le nombre de produits achetés par chaque client.
+#1. Diagramme en barres (bar plot):Un diagramme en barres pourrait être utilisé pour représenter le montant dépensé par le top 5 des client qui ont le plus dépensé.
 
-ggplot(data = ventesDf, aes(x = Prenom.Nom, y = Nombre.de.Produits.Achetes)) +
-  geom_bar(stat = "identity", fill = "skyblue") +
-  labs(x = "Nom du Client", y = "Nombre de Produits Achetés") +
-  ggtitle("Nombre de Produits Achetés par Client")
+# Trier les clients par montant dépensé en ordre décroissant
+top_clients <- head(ventesDf[order(-ventesDf$Montant.Depense..Franc.CFA.),], 5)
+
+# Créer un diagramme en barres
+ggplot(data = top_clients, aes(x = Prenom.Nom, y = Montant.Depense..Franc.CFA., fill = Prenom.Nom)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Nom du Client", y = "Montant Dépensé") +
+  ggtitle("Top 5 des Clients Ayant le Plus Dépensé")
+
+
 
 #2. Diagramme en secteurs (pie chart) : Un diagramme en secteurs pourrait être utilisé pour représenter la répartition des clients en fonction de leur "Loyauté"
 
