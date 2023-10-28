@@ -57,6 +57,10 @@ moyenne_produits_achetes <- mean(ventesDf$Nombre.de.Produits.Achetes)
 #b. Afficher la moyenne
 print(moyenne_produits_achetes)
 
+#8. Création d'une nouvelle colonne: Comment ajouteriez-vous une nouvelle colonne au jeu de données, appelée "Loyauté", qui est qualifiée de "Haute" si un client a dépensé plus de 30 000 CFA et de "Basse" sinon?
+# Ajouter une nouvelle colonne "Loyauté" basée sur le montant dépensé
+ventesDf$Loyaute <- ifelse(ventesDf$Montant.Depense > 30000, "Haute", "Basse")
+head(ventesDf, 5)
 
 
 
