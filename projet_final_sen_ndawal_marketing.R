@@ -1,5 +1,6 @@
+#Importation des packages nécessaire
 library(readr)
-
+library(ggplot2)
 
 #1. Importation des données: Comment importeriez-vous le fichier CSV de marketing dans R? 
 ventesDf <- read.csv("C:/Users/hp/Desktop/corrected_sen_ndawal_marketing_data.csv")
@@ -32,12 +33,14 @@ montant_10_premiers_client <- head(ventesDf$Montant.Depense, 10)
 #b. Afficher le montant dépensé par les 10 premiers clients
 print(montant_10_premiers_client)
 
+
 #5. Filtrage des données: Comment filtreriez-vous et afficheriez-vous toutes les lignes où le nombre de produits achetés est supérieur à 15?
 #a. Filtrer les lignes où le nombre de produits achetés est supérieur à 15
 produits_plus_de_15 <- subset(ventesDf, Nombre.de.Produits.Achetes > 15)
 
 #b. Afficher les lignes filtrées
 print(produits_plus_de_15)
+
 
 #6  Nom du client ayant dépensé le plus: Qui est le client qui a dépensé le plus d'argent dans ce jeu de données?
 #a. Trouver l'indice du client avec la dépense maximale
@@ -50,6 +53,7 @@ nom_client_max_depense <- ventesDf$Prenom.Nom[indice_max_depense]
 #c. Afficher le nom du client ayant dépensé le plus
 print(nom_client_max_depense)
 
+
 #7. Moyenne des produits achetés: Calculez la moyenne du nombre de produits achetés par les clients.
 #a. Calculer la moyenne du nombre de produits achetés
 moyenne_produits_achetes <- mean(ventesDf$Nombre.de.Produits.Achetes)
@@ -57,14 +61,25 @@ moyenne_produits_achetes <- mean(ventesDf$Nombre.de.Produits.Achetes)
 #b. Afficher la moyenne
 print(moyenne_produits_achetes)
 
+
 #8. Création d'une nouvelle colonne: Comment ajouteriez-vous une nouvelle colonne au jeu de données, appelée "Loyauté", qui est qualifiée de "Haute" si un client a dépensé plus de 30 000 CFA et de "Basse" sinon?
 # Ajouter une nouvelle colonne "Loyauté" basée sur le montant dépensé
 ventesDf$Loyaute <- ifelse(ventesDf$Montant.Depense > 30000, "Haute", "Basse")
 head(ventesDf, 5)
 
+
 #9. Sauvegarde des données: Comment sauvegarderiez-vous le jeu de données modifié dans un fichier CSV appelé "marketing_data_with_loyalty.csv"?
 # Sauvegarder le jeu de données modifié dans un fichier CSV
 write.csv(ventesDf, "C:/Users/hp/Desktop/marketing_data_with_loyalty.csv", row.names = FALSE)
+
+
+#10. Visualisation: Utilisez la bibliothèque ggplot2 pour créer un scatter plot montrant la relation entre le nombre de produits achetés et le montant dépensé par chaque client. Quelle commande utiliseriez-vous?
+ggplot(data = ventesDf, aes(x = Nombre.de.Produits.Achetes, y = Montant.Depense..Franc.CFA.)) +
+  geom_point() +
+  labs(x = "Nombre de Produits Achetés", y = "Montant Dépensé") +
+  ggtitle("Relation entre le nombre de produits achetés et le montant dépensé")
+
+#Bonus sur la Visualisation 
 
 
 
