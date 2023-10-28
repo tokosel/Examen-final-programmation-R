@@ -16,6 +16,7 @@ str(ventesDf)
 nb_colonnes <- ncol(ventesDf)
 print(nb_colonnes)
 
+
 #3. Résumé des données: Utilisez une fonction pour obtenir un résumé statistique du montant dépensé par les clients
 summary(ventesDf$Montant.Depense)
 # Calculer la médiane du montant dépensé
@@ -24,4 +25,10 @@ median_montant <- median(ventesDf$Montant.Depense)
 print(median_montant)
 
 
+#4.Sélection de données: Comment sélectionneriez-vous et afficheriez-vous le montant dépensé par les 10 premiers clients du jeu de données?
 
+# Sélectionner le montant dépensé par les 10 premiers clients
+montant_10_premiers_client <- head(ventesDf$Montant.Depense, 10)
+
+# Afficher le montant dépensé par les 10 premiers clients
+print(montant_10_premiers_client)
