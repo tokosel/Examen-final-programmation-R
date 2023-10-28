@@ -79,7 +79,32 @@ ggplot(data = ventesDf, aes(x = Nombre.de.Produits.Achetes, y = Montant.Depense.
   labs(x = "Nombre de Produits Achetés", y = "Montant Dépensé") +
   ggtitle("Relation entre le nombre de produits achetés et le montant dépensé")
 
-#Bonus sur la Visualisation 
+
+#Bonus: proposition de deux graphiques pertinents
+
+#1. Diagramme en barres (bar plot):Un diagramme en barres pourrait être utilisé pour représenter le nombre de produits achetés par chaque client.
+
+ggplot(data = ventesDf, aes(x = Prenom.Nom, y = Nombre.de.Produits.Achetes)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(x = "Nom du Client", y = "Nombre de Produits Achetés") +
+  ggtitle("Nombre de Produits Achetés par Client")
+
+#2. Diagramme en secteurs (pie chart) : Un diagramme en secteurs pourrait être utilisé pour représenter la répartition des clients en fonction de leur "Loyauté"
+
+# Compter le nombre de clients "Haute" et "Basse"
+loyaute_counts <- table(ventesDf$Loyaute)
+
+ggplot(data = NULL, aes(x = "", y = loyaute_counts, fill = names(loyaute_counts))) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y") +
+  labs(fill = "Loyauté") +
+  ggtitle("Répartition des Clients par Loyauté")
+
+#2. Diagramme en barres représentant le montant dépensé par chaque catégorie de client
+ggplot(data = ventesDf, aes(x = Loyaute, y = Montant.Depense..Franc.CFA., fill = Loyaute)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Catégorie de Client", y = "Montant Dépensé") +
+  ggtitle("Montant Dépensé par Catégorie de Client")
 
 
 
